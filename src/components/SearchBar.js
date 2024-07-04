@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 
+import SearchResults from './SearchResults';
+
 
 function SearchBar({ access_token }) {
     const [query, setQuery] = useState('');
+    const [searchResult, setSearchResult] = useState(null);
 
     const handleChange = ({ target }) => {
+        if (searchResult != null) {
+            setSearchResult(null);
+        }
         setQuery(target.value);
     }
 
@@ -12,7 +18,7 @@ function SearchBar({ access_token }) {
         const searchURL = `https://api.spotify.com/v1/search?q=${query}&type=track&market=NZ`;
         const header = {Authorization: `Bearer ${access_token}`};
 
-        const searchResult = await fetch(searchURL, {
+        const result = await fetch(searchURL, {
             method: 'GET',
             headers: header
         }).then(response => {
@@ -22,7 +28,7 @@ function SearchBar({ access_token }) {
             throw new Error('Network response was not ok.');
         });
 
-        console.log(searchResult);
+        setSearchResult(result);
     }
 
     return (
@@ -34,6 +40,7 @@ function SearchBar({ access_token }) {
                 onChange={handleChange}
             />
             <button onClick={handleSearch}>Search</button>
+            {searchResult !== null ? <SearchResults data={searchResult} /> : <div></div>}
         </div>
     );
 }
