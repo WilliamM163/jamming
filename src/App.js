@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
+import Playlist from './components/Playlist';
+import TrackList from './components/Tracklist';
+import Track from './components/Track';
+import SaveToSpotify from './components/SaveToSpotify';
+
+
+function App({ access_token }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SearchBar access_token={access_token} />
+      <SearchResults />
+      <Playlist />
+      <TrackList />
+      <Track />
+      <SaveToSpotify />
     </div>
   );
 }
