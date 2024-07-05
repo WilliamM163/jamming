@@ -7,6 +7,8 @@ function Track({ track, setCurrentTrack }) {
         window.open(`https://open.spotify.com/track/${target.id}`, '_blank');
     }
 
+    console.log(track);
+
     return (
         <div className={styles.track}>
             <img
@@ -19,7 +21,7 @@ function Track({ track, setCurrentTrack }) {
             <div className={styles['track-info']}>
                 <p className={styles.track_name}>{track.name}</p>
                 <p className={styles.album_name}>{track.album.name}</p>
-                {/* <p className={styles.artist_name}>{track.artists.join(', ')}</p> */}
+                <p className={styles.artist_name}>{track.artists.map(artist => artist.name).join(', ')}</p>
             </div>
             <div className={styles.buttons}>
                 <p
@@ -35,7 +37,7 @@ function Track({ track, setCurrentTrack }) {
                     style={{ 'height': 20, 'width': 20, 'paddingRight': 5 }}
                     className={styles.spotify_icon}
                     onClick={openSpotify}
-                    id={track.track_id}
+                    id={track.id}
                 />
             </div>
         </div>

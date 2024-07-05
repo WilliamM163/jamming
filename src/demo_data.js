@@ -38,7 +38,7 @@ const demo_data = {
                     name: 'Sunroof',
                     images: [null, { url: 'https://i.scdn.co/image/ab67616d00001e02ecd970d1d2623b6c7fc6080c' }, { url: 'https://i.scdn.co/image/ab67616d00004851ecd970d1d2623b6c7fc6080c' }]
                 },
-                artists: [{ name: 'Nicky Youre & dazy' }],
+                artists: [{ name: 'Nicky Youre' }, {name: 'dazy'}],
                 preview_url: 'https://p.scdn.co/mp3-preview/605058558fd8d10c420b56c41555e567645d5b60?cid=2ef60a6a1ca94d4f86b4f82b869cd940'
             },
             {
