@@ -13,6 +13,7 @@ import SearchResults from './components/SearchResults';
 
 function App({ access_token }) {
   const [searchResult, setSearchResult] = useState(demo_data);
+  const [currentTrack, setCurrentTrack] = useState(demo_data.tracks.items[0]);
 
   const handleSearch = async (query) => {
     const searchURL = `https://api.spotify.com/v1/search?q=${query}&type=track&market=NZ`;
@@ -34,9 +35,9 @@ function App({ access_token }) {
   return (
     <div className={styles.main}>
       <SearchBar handleSearch={handleSearch} />
-      <SearchResults data={searchResult} />
+      <SearchResults data={searchResult} setCurrentTrack={setCurrentTrack} />
       <div className={styletabs.tabs}>
-        <CurrentlyPlaying />
+        <CurrentlyPlaying currentTrack={currentTrack} />
         <Playlist />
       </div>
     </div>

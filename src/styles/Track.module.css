@@ -2,7 +2,7 @@
     border-radius: 15px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 80px 1fr 80px;
     gap: 5px;
     height: 80px;
     width: 100%;
@@ -37,3 +37,22 @@
     text-overflow: ellipsis;
 }
 
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto 0;
+}
+
+.spotify_icon {
+    cursor: alias;
+    margin: auto;
+}
+
+.text_icon {
+    cursor: alias;
+    margin: auto;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
