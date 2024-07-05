@@ -1,0 +1,5 @@
+.tabs {
+    display: grid;
+    grid-template-rows: 175px 1fr;
+    gap: 15px;
+}

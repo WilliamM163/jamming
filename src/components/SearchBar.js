@@ -1,46 +1,33 @@
 import React, { useState } from 'react';
 
-import SearchResults from './SearchResults';
+import styles from '../styles/App.module.css';
 
 
-function SearchBar({ access_token }) {
+function SearchBar({ handleSearch }) {
     const [query, setQuery] = useState('');
-    const [searchResult, setSearchResult] = useState(null);
 
     const handleChange = ({ target }) => {
-        if (searchResult != null) {
-            setSearchResult(null);
-        }
         setQuery(target.value);
     }
 
-    const handleSearch = async () => {
-        const searchURL = `https://api.spotify.com/v1/search?q=${query}&type=track&market=NZ`;
-        const header = {Authorization: `Bearer ${access_token}`};
-
-        const result = await fetch(searchURL, {
-            method: 'GET',
-            headers: header
-        }).then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Network response was not ok.');
-        });
-
-        setSearchResult(result);
-    }
+    const gridSpread = {'gridArea': '1 / 1 / 1 / 3'}
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search song"
-                value={query}
-                onChange={handleChange}
-            />
-            <button onClick={handleSearch}>Search</button>
-            {searchResult !== null ? <SearchResults data={searchResult} /> : <div></div>}
+        <div className={styles.primary_container} style={gridSpread}>
+            <div className={styles.search}>
+                <input
+                    type="text"
+                    placeholder="Search song..."
+                    value={query}
+                    onChange={handleChange}
+                    className={styles['search-input']}
+                />
+                <button
+                    onClick={() => {handleSearch(query)}}
+                    className={styles['search-input']}
+                >🔍 Search</button>
+            </div>
+            
         </div>
     );
 }

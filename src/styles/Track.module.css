@@ -1,0 +1,39 @@
+.track {
+    border-radius: 15px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 5px;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #E3E18F;
+}
+
+.track-info {
+    margin: auto 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.track_name {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album_name {
+    font-size: 12px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist_name {
+    font-size: 14px;
+    margin: 12px 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

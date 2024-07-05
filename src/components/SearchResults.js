@@ -5,6 +5,7 @@ import Track from './Track';
 function SearchResults({ data }) {
     const resultsArray = data.tracks.items;
     const tracks = resultsArray.map(track => {
+        console.log(track);
         return {
             track_name: track.name,
             track_id: track.id,
@@ -17,7 +18,6 @@ function SearchResults({ data }) {
 
     return (
         <div>
-            <p>SearchResults: </p>
             {tracks.map(track => <Track track={track}/>)}
         </div>
     );
